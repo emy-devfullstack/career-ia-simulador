@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Career IA — pratique entrevistas de emprego e receba um feedback personalizado."
+    />
+    <meta name="theme-color" content="#07111f" />
+    <title>Career IA — Simulação de entrevistas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient--one" aria-hidden="true"></div>
+    <div class="ambient ambient--two" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <button class="brand" id="brandButton" type="button" aria-label="Voltar ao início">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M7.5 7.5 12 3l4.5 4.5M12 3v11" />
+            <path d="M5 13v4.5A3.5 3.5 0 0 0 8.5 21h7a3.5 3.5 0 0 0 3.5-3.5V13" />
+          </svg>
+        </span>
+        <span>Career <strong>IA</strong></span>
+      </button>
+
+      <div class="topbar__meta">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>Entrevistador virtual</span>
+      </div>
+    </header>
+
+    <main id="app">
+      <section class="screen screen--active hero" id="homeScreen" aria-labelledby="heroTitle">
+        <div class="hero__content">
+          <div class="eyebrow"><span></span> Treine hoje. Destaque-se amanhã.</div>
+          <h1 id="heroTitle">Sua próxima entrevista<br />começa <em>aqui.</em></h1>
+          <p class="hero__lead">
+            Pratique perguntas reais da sua área e receba um feedback claro para chegar mais confiante à próxima oportunidade.
+          </p>
+
+          <div class="hero__actions">
+            <button class="button button--primary button--large" id="startButton" type="button">
+              Iniciar simulação
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+            </button>
+            <span class="hero__hint"><strong>5 perguntas</strong> · cerca de 10 minutos</span>
+          </div>
+
+          <div class="trust-row" aria-label="Benefícios da simulação">
+            <div class="trust-item">
+              <span class="trust-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="m9 12 2 2 4-4" /></svg>
+              </span>
+              <span><strong>Ambiente seguro</strong><small>Pratique sem julgamentos</small></span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 3 3 8l9 5 9-5-9-5Z" /><path d="m5 12 7 4 7-4M5 16l7 4 7-4" /></svg>
+              </span>
+              <span><strong>Feedback estruturado</strong><small>Insights para evoluir</small></span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+              </span>
+              <span><strong>Rápido e objetivo</strong><small>No seu ritmo</small></span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero__visual" aria-label="Prévia da experiência">
+          <div class="orbit orbit--outer" aria-hidden="true"></div>
+          <div class="orbit orbit--inner" aria-hidden="true"></div>
+          <div class="preview-card">
+            <div class="preview-card__top">
+              <div class="ai-avatar">
+                <span></span><span></span><span></span>
+              </div>
+              <div>
+                <strong>Entrevistador IA</strong>
+                <small><i></i> Online agora</small>
+              </div>
+              <span class="preview-card__live">AO VIVO</span>
+            </div>
+            <div class="preview-card__body">
+              <span class="question-label">PERGUNTA 3 DE 5</span>
+              <p>Conte sobre um desafio profissional que exigiu uma solução criativa.</p>
+              <div class="typing"><span></span><span></span><span></span></div>
+            </div>
+            <div class="preview-card__footer">
+              <span><i></i> Analisando sua resposta</span>
+              <div class="wave" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
+            </div>
+          </div>
+          <div class="floating-tag floating-tag--one"><span>✓</span> Feedback personalizado</div>
+          <div class="floating-tag floating-tag--two"><span>10</span> áreas profissionais</div>
+        </aside>
+      </section>
+
+      <section class="screen selection" id="areaScreen" aria-labelledby="areaTitle">
+        <div class="section-heading">
+          <button class="back-button" type="button" data-go="homeScreen">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+            Voltar
+          </button>
+          <div class="eyebrow"><span></span> Passo 1 de 2</div>
+          <h2 id="areaTitle">Qual é a sua área?</h2>
+          <p>Escolha a área profissional para personalizarmos as perguntas da sua entrevista.</p>
+        </div>
+        <div class="area-grid" id="areaGrid"></div>
+        <p class="privacy-note">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg>
+          Suas respostas ficam apenas neste dispositivo.
+        </p>
+      </section>
+
+      <section class="screen interview" id="interviewScreen" aria-labelledby="interviewTitle">
+        <div class="interview__header">
+          <button class="back-button" id="backToAreas" type="button">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+            Trocar área
+          </button>
+          <div class="interview__title-wrap">
+            <span class="area-icon area-icon--small" id="selectedAreaIcon"></span>
+            <div>
+              <small>SIMULAÇÃO PARA</small>
+              <h2 id="interviewTitle"></h2>
+            </div>
+          </div>
+          <div class="progress-copy"><strong id="progressCount">0</strong>/5 respondidas</div>
+        </div>
+        <div class="progress-bar" aria-hidden="true"><span id="progressBar"></span></div>
+
+        <form class="question-list" id="interviewForm" novalidate></form>
+
+        <div class="submit-row">
+          <p><span aria-hidden="true">✦</span> Responda com exemplos concretos para um feedback mais útil.</p>
+          <button class="button button--primary" id="submitButton" type="submit" form="interviewForm">
+            Enviar respostas
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="screen feedback" id="feedbackScreen" aria-labelledby="feedbackTitle">
+        <div class="feedback__hero">
+          <div class="success-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="m6.5 12.5 3.5 3.5 7.5-8" /></svg>
+          </div>
+          <div class="eyebrow"><span></span> Simulação concluída</div>
+          <h2 id="feedbackTitle">Muito bem! Aqui está<br />o seu feedback.</h2>
+          <p id="feedbackIntro"></p>
+        </div>
+
+        <div class="feedback-grid">
+          <article class="feedback-card feedback-card--strengths">
+            <div class="feedback-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5 15 9l6 .7-4.5 4 1.3 6.3-5.8-3.2L6.2 20l1.3-6.3-4.5-4L9 9l3-6.5Z" /></svg>
+            </div>
+            <div><span class="card-kicker">O QUE FUNCIONOU</span><h3>Pontos fortes</h3></div>
+            <ul id="strengthsList"></ul>
+          </article>
+          <article class="feedback-card feedback-card--improvements">
+            <div class="feedback-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 20h16M6 16l4-4 3 2 5-7" /><path d="M15 7h3v3" /></svg>
+            </div>
+            <div><span class="card-kicker">PRÓXIMO NÍVEL</span><h3>Pontos de melhoria</h3></div>
+            <ul id="improvementsList"></ul>
+          </article>
+          <article class="feedback-card feedback-card--final">
+            <div class="feedback-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 22h4" /><path d="M8.2 14.5A7 7 0 1 1 15.8 14.5c-.9.7-1.3 1.4-1.3 2.5h-5c0-1.1-.4-1.8-1.3-2.5Z" /></svg>
+            </div>
+            <div><span class="card-kicker">DICA DO ENTREVISTADOR</span><h3>Sugestão final</h3></div>
+            <p id="finalSuggestion"></p>
+          </article>
+        </div>
+
+        <div class="feedback__actions">
+          <button class="button button--primary" id="restartButton" type="button">
+            Nova simulação
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7L20 8" /><path d="M20 3v5h-5" /></svg>
+          </button>
+          <button class="button button--ghost" id="printButton" type="button">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" /><path d="M6 14h12v7H6z" /></svg>
+            Salvar feedback
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <footer>
+      <span>Career IA</span>
+      <span>Prática que prepara. Confiança que transforma.</span>
+      <span>Feito para o seu próximo passo.</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
