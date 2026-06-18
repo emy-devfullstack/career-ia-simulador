@@ -97,6 +97,19 @@ const state = { selectedArea: null, answers: [] };
 const $ = (selector) => document.querySelector(selector);
 const screens = document.querySelectorAll('.screen');
 
+function applyTheme(theme) {
+  const isLight = theme === 'light';
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem('career-ia-theme', theme);
+  $('#themeColor').setAttribute('content', isLight ? '#f5f7fb' : '#07111f');
+  $('#themeToggle').setAttribute('aria-label', isLight ? 'Ativar modo escuro' : 'Ativar modo claro');
+  $('#themeToggle').setAttribute('title', isLight ? 'Ativar modo escuro' : 'Ativar modo claro');
+}
+
+function toggleTheme() {
+  applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
+}
+
 function showScreen(id) {
   screens.forEach((screen) => screen.classList.toggle('screen--active', screen.id === id));
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -257,8 +270,10 @@ function restart() {
 }
 
 renderAreas();
+applyTheme(document.documentElement.dataset.theme || 'dark');
 
 $('#startButton').addEventListener('click', () => showScreen('areaScreen'));
+$('#themeToggle').addEventListener('click', toggleTheme);
 $('#brandButton').addEventListener('click', () => showScreen('homeScreen'));
 $('#areaGrid').addEventListener('click', (event) => {
   const card = event.target.closest('[data-area]');
