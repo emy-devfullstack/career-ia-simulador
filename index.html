@@ -7,8 +7,11 @@
       name="description"
       content="Career IA — pratique entrevistas de emprego e receba um feedback personalizado."
     />
-    <meta name="theme-color" content="#07111f" />
+    <meta name="theme-color" content="#07111f" id="themeColor" />
     <title>Career IA — Simulação de entrevistas</title>
+    <script>
+      document.documentElement.dataset.theme = localStorage.getItem('career-ia-theme') || 'dark';
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,9 +26,30 @@
 
     <header class="topbar">
       <button class="brand" id="brandButton" type="button" aria-label="Voltar ao início">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M7.5 7.5 12 3l4.5 4.5M12 3v11" />
+            <path d="M5 13v4.5A3.5 3.5 0 0 0 8.5 21h7a3.5 3.5 0 0 0 3.5-3.5V13" />
+          </svg>
+        </span>
         <span>Career <strong>IA</strong></span>
       </button>
-      
+
+      <div class="topbar__actions">
+        <div class="topbar__meta">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Entrevistador virtual</span>
+        </div>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Ativar modo claro" title="Ativar modo claro">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41" />
+          </svg>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z" />
+          </svg>
+        </button>
+      </div>
     </header>
 
     <main id="app">
@@ -192,8 +216,8 @@
 
     <footer>
       <span>Career IA</span>
-      <span>Desenvolvido por Emily Garcia</span>
-      <span>Feito com muito café.</span>
+      <span>Prática que prepara. Confiança que transforma.</span>
+      <span>Feito para o seu próximo passo.</span>
     </footer>
 
     <script src="app.js"></script>
